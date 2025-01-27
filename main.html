@@ -24,16 +24,20 @@
             const password = document.getElementById("password").value;
             const checkbox = document.getElementById("checkbox").checked;
 
-            if (checkbox) {
-                localStorage.setItem("username", username);
-                localStorage.setItem("password", password);
-            } else {
-                localStorage.removeItem("username");
-                localStorage.removeItem("password");
-            }
+            if (username && password) {
+                if (checkbox) {
+                    localStorage.setItem("username", username);
+                    localStorage.setItem("password", password);
+                } else {
+                    localStorage.removeItem("username");
+                    localStorage.removeItem("password");
+                }
 
-            alert(`Logged in as ${username}`);
-            displayExistingUserButton();
+                alert(`Logged in as ${username}`);
+                displayExistingUserButton();
+            } else {
+                alert("Please enter both username and password.");
+            }
         });
 
         function displayExistingUserButton() {
